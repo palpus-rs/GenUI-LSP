@@ -1,0 +1,30 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Gen",
+  "fileTypes": ["gen"],
+  "patterns": [
+    {
+      "begin": "<template>",
+      "end": "</template>",
+      "name": "text.html.basic.gen",
+      "contentName": "text.html.basic",
+      "patterns": [{ "include": "text.html.basic" }]
+    },
+    {
+      "begin": "<script>",
+      "end": "</script>",
+      "name": "source.rust",
+      "contentName": "source.rust",
+      "patterns": [{ "include": "source.rust" }]
+    },
+    {
+      "begin": "<style>",
+      "end": "</style>",
+      "name": "source.css",
+      "contentName": "source.css",
+      "patterns": [{ "include": "source.css" }]
+    }
+  ],
+  
+  "scopeName": "source.gen"
+}
