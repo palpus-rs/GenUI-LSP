@@ -1,0 +1,14 @@
+{
+    "name": "Gen Theme",
+    "colors": {},
+    "tokenColors": [
+        {
+            "scope": [
+                "entity.name.tag.gen"
+            ],
+            "settings": {
+                "foreground": "#FF0000"
+            }
+        }
+    ]
+}

@@ -1,12 +1,44 @@
 <template>
-
+    <component inherits="view">
+        <label id="first_lb" class="t_label" font_size="32" :text="my_props.label1"/>
+        <label id="second_lb" class="t_label" :font_size="fs"  text="label 2"/>
+        <button id="bb" text="text btn" @clicked="btn_click" />
+    </component>
 </template>
 
 <script>
+use gen_macros::{Event, Props, on_shutdown};
+
+#[derive(Event,Clone,Debug)]
+pub enum Events{
+    #[name("click")]
+    Clicked(String),
+    None,
+}
+
+#[derive(Prop)]
+pub struct MyProps{
+    pub label1: String
+}
+
+let fs: f64 = 18.0;
+
+let mut btn_click = ||{
+    println!("Button bb Clicked");
+    active!(Events::Clicked, "Hello".to_string());
+};
+
+fn hello(){
+    println!("{}",hello);
+}
 
 </script>
 
-
 <style>
-
+.t_label{
+    brightness: 1.1;
+    color: #fff;
+    wrap: Word;
+    font: use("crate://makepad-widgets/resources/IBMPlexSans-SemiBold.ttf");
+}
 </style>

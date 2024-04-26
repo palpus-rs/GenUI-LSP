@@ -10,7 +10,13 @@
     "Programming Languages"
   ],
   "contributes": {
-    
+    "themes": [
+      {
+        "label": "Gen Theme",
+        "uiTheme": "vs-dark",
+        "path": "./themes/gen-color-theme.json"
+      }
+    ],
     "languages": [
       {
         "id": "gen",
