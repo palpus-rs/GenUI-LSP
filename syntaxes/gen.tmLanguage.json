@@ -3,18 +3,41 @@
   "name": "Gen",
   "fileTypes": ["gen"],
   "patterns": [
-      {
-        "name": "tag.name.gen",
-        "begin": "<",
-        "end": ">",
-        "patterns": [
-          {
-            "match": "([a-zA-Z0-9]+)",
-            "name": "entity.name.tag.gen"
-          }
-        ] 
-      }
+    {
+      "begin": "<script\\b[^>]*>",
+      "end": "</script>",
+      "name": "source.rust",
+      "contentName": "source.rust",
+      "patterns": [{ "include": "source.rust" }]
+    },
+    {
+      "begin": "<style>",
+      "beginCaptures": {
+        "0": { "name": "punctuation.definition.tag.begin.html" }
+      },
+      "end": "</style>",
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.tag.end.html" }
+      },
+      "patterns": [
+        {
+          "match": "\\.[a-zA-Z_][\\w-]*",
+          "name": "entity.other.attribute-name.class.css"
+        },
+        {
+          "match": "\\#[a-zA-Z_][\\w-]*",
+          "name": "entity.other.attribute-name.id.css"
+        },
+        {
+          "match": "[a-zA-Z-]+",
+          "name": "support.type.property-name.css"
+        },
+        {
+          "match": ":\\s*[^;]+",
+          "name": "support.constant.property-value.css"
+        }
+      ]
+    }
   ],
-  
   "scopeName": "source.gen"
 }

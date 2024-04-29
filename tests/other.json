@@ -20,6 +20,20 @@
             "name": "source.css",
             "contentName": "source.css",
             "patterns": [{ "include": "source.css" }]
+          },
+          {
+             "match": "([a-zA-Z0-9]+)"
+          },
+          {
+            "name": "tag.name.gen",
+            "begin": "<",
+            "end": ">",
+            "patterns": [
+              {
+                "match": "template",
+                "name": "entity.name.tag.template.gen"
+              }
+            ]
           }
     ]
 }

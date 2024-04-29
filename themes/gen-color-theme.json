@@ -1,13 +1,74 @@
 {
-    "name": "Gen Theme",
-    "colors": {},
     "tokenColors": [
         {
             "scope": [
-                "entity.name.tag.gen"
+                "entity.name.tag.template.gen"
             ],
             "settings": {
-                "foreground": "#FF0000"
+                "foreground": "#0084ff"
+            }
+        },
+        {
+            "scope": "gen.script.keyword.declaration",
+            "settings": {
+                "foreground": "#86B1C1"  // Green for <style> tags
+            }
+        },
+        {
+            "scope": "gen.script.keyword.function",
+            "settings": {
+                "foreground": "#73bad4"  // Green for <style> tags
+            }
+        },
+        {
+            "scope": "gen.script.keyword.backward",
+            "settings": {
+                "foreground": "#ed8768"  // Green for <style> tags
+            }
+        },
+        {
+            "scope": "gen.script.keyword.control",
+            "settings": {
+                "foreground": "#799ad4"  // Green for <style> tags
+            }
+        },
+        {
+            "scope": "gen.script.keyword.type",
+            "settings": {
+                "foreground": "#ffe4a4"  // Green for <style> tags
+            }
+        },
+        {
+            "scope": [
+                "punctuation.definition.tag.begin.html",
+                "punctuation.definition.tag.end.html"
+            ],
+            "settings": {
+                "foreground": "#109aa9"  // Green for <style> tags
+            }
+        },
+        {
+            "scope": "entity.other.attribute-name.id.css",
+            "settings": {
+                "foreground": "#77B0AA"  // Purple for IDs
+            }
+        },
+        {
+            "scope": "entity.other.attribute-name.class.css",
+            "settings": {
+                "foreground": "#7cbeb7"  // Red for classes
+            }
+        },
+        {
+            "scope": "support.type.property-name.css",
+            "settings": {
+                "foreground": "#c7fff0"
+            }
+        },
+        {
+            "scope": "support.constant.property-value.css",
+            "settings": {
+                "foreground": "#e5fff8" 
             }
         }
     ]

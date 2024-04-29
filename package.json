@@ -12,8 +12,13 @@
   "contributes": {
     "themes": [
       {
-        "label": "Gen Theme",
+        "label": "Gen Dark",
         "uiTheme": "vs-dark",
+        "path": "./themes/gen-color-theme.json"
+      },
+      {
+        "label": "Gen HC Dark",
+        "uiTheme": "hc-black",
         "path": "./themes/gen-color-theme.json"
       }
     ],
