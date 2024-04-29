@@ -4,11 +4,98 @@
   "fileTypes": ["gen"],
   "patterns": [
     {
-      "begin": "<script\\b[^>]*>",
+      "begin": "<template>",
+      "beginCaptures": {
+        "0": { "name": "punctuation.definition.tag.begin.html" }
+      },
+      "end": "</template>",
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.tag.end.html" }
+      },
+      "patterns": [
+        {
+          "match": "<\\/?\\b:[a-z_][a-zA-Z0-9_]*\\b",
+          "name": "entity.name.tag.gen"
+        },
+        {
+          "match": "\\b:[a-z_][a-zA-Z0-9_]*\\b",
+          "name": "entity.other.attribute-name.gen"
+        },
+        {
+          "match": "\\b:[a-z_][a-zA-Z0-9_]*\\b",
+          "name": "variable.parameter.template.gen"
+        },
+        {
+          "match": "\\b@[a-z_][a-zA-Z0-9_]*\\b",
+          "name": "keyword.other.event.gen"
+        },
+        {
+          "begin": "\"",
+          "end": "\"",
+          "name": "string.quoted.double.gen"
+        },
+        {
+          "match": "\\bclass=\\b",
+          "name": "keyword.other.class.gen",
+          "patterns": [
+            {
+              "begin": "\"",
+              "end": "\"",
+              "name": "string.quoted.double.class.gen"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "begin": "<script>",
+      "beginCaptures": {
+        "0": { "name": "punctuation.definition.tag.begin.html" }
+      },
       "end": "</script>",
-      "name": "source.rust",
-      "contentName": "source.rust",
-      "patterns": [{ "include": "source.rust" }]
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.tag.end.html" }
+      },
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.rust",
+          "match": "//.*$"
+        },
+        {
+          "name": "string.quoted.double.rust",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            { "match": "\\\\(.)", "name": "constant.character.escape.rust" }
+          ]
+        },
+        {
+          "name": "keyword.control.rust",
+          "match": "\\b(if|else|while|let|mut|fn|pub|use)\\b"
+        },
+        {
+          "name": "storage.type.rust",
+          "match": "\\b(struct|enum|impl|trait|type)\\b"
+        },
+        {
+          "name": "support.function.macro.rust",
+          "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*!\\b"
+        },
+        {
+          "name": "variable.other.rust",
+          "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
+        },
+        {
+          "name": "constant.numeric.rust",
+          "match": "\\b[0-9]+(\\.[0-9]+)?\\b"
+        },
+        {
+          "name": "meta.attribute.rust",
+          "begin": "#\\[",
+          "end": "\\]",
+          "patterns": [{ "include": "#meta_attribute_inner" }]
+        }
+      ]
     },
     {
       "begin": "<style>",
@@ -39,5 +126,15 @@
       ]
     }
   ],
-  "scopeName": "source.gen"
+  "scopeName": "source.gen",
+  "repository": {
+    "meta_attribute_inner": {
+      "patterns": [
+        {
+          "name": "string.unquoted.rust",
+          "match": "[a-zA-Z0-9_]+"
+        }
+      ]
+    }
+  }
 }
